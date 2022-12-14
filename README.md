@@ -1,9 +1,3 @@
-What is the URL to your GitHub-Pages site?
-
-What are some other applications for your API other than searching? Name a few and describe how an app using it for that purpose might work.
-How can you make your app accessible to people with disabilities such as blindness or colorblindness?
-
-
 
 1.
 2. I decided to use the Free-to-Play Games API (https://rapidapi.com/digiwalls/api/free-to-play-games-database) because I enjoy playing games and I have not done a project related to games so I thought it would be fun to do. 
