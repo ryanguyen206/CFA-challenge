@@ -4,12 +4,11 @@ import GameCard from './GameCard'
 const Games = ({games, singleGame, isLoading, isMultipleGames, setIsMultipleGames}) => {
 
   return (
-    <div className='border-black max-w-screen-2xl m-auto gap-6'>
-    
+    <div className='border-black max-w-screen-2xl m-auto gap-6 p-4'>
         {!isMultipleGames ?  <p className='font-bold uppercase text-2xl text-center mb-6'>Loading...</p> :  Object.keys(singleGame).length == 0   ?     (
             <div>
             <p className='font-bold uppercase text-2xl text-center mb-6'>Showing {games.length} results</p>
-            <div className='grid gap-12 grid-cols-3 auto-rows-500px'>
+            <div className='gridContainer'>
                 {games.map((game, index) => (
                     <GameCard key={index} game={game} />
                 ))}

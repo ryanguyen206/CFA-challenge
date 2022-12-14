@@ -8,13 +8,24 @@ import { searchData, options } from '../utils/getData'
 
 const FilterGame = ({setGames, setSingleGame, setIsLoading, setIsMultipleGames}) => {
 
+
+    const commonFilterSettings = (res) => {
+        setGames(res);
+        setIsMultipleGames(true)
+        setSingleGame('')
+        setIsLoading(false);
+    }
+    
     const handleFilteredGames = async (e) => {
             setIsMultipleGames(false);
             const res = await searchData(`https://free-to-play-games-database.p.rapidapi.com/api/games?category=${e.target.value}`,options)
-            setGames(res);
-            setIsMultipleGames(true)
-            setSingleGame('')
-            setIsLoading(false);
+            commonFilterSettings(res)
+    }
+
+    const handleAlphabeticalOrder = async (e) => {
+        setIsMultipleGames(false);
+        const res = await searchData('https://free-to-play-games-database.p.rapidapi.com/api/games?sort-by=alphabetical',options)
+        commonFilterSettings(res)
     }
 
   return (
@@ -49,6 +60,16 @@ const FilterGame = ({setGames, setSingleGame, setIsLoading, setIsMultipleGames})
                     className='m-2'
                 />
                 <label htmlFor='PVP'>PVP</label>
+
+                <input
+                    type="radio"
+                    id="alphabetical"
+                    value="alphabetical"
+                    name="filter_game"
+                    onClick={(e) => handleAlphabeticalOrder(e)}
+                    className='m-2'
+                />
+                <label htmlFor='alphabetical'>Alphabetical</label>
             </form>
 
     </div>
