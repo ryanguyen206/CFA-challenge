@@ -1,16 +1,17 @@
 import React, {useState, useEffect} from 'react'
-import Card from '../components/Card'
+import Games from '../components/Games';
 import { searchData, options } from '../utils/getData';
 import Search from '../components/Search';
+import FilterGame from '../components/FilterGame';
 
 const Home = () => {
 
     const [games, setGames] = useState([]);
     const [singleGame, setSingleGame] = useState({})
-
-
-
-
+    const [isLoading, setIsLoading] = useState(false);
+    const [isMultipleGames, setIsMultipleGames] = useState(true);
+  
+    
     useEffect(() => {
         const allGames = async () => {
         const res = await searchData('https://free-to-play-games-database.p.rapidapi.com/api/games', options);
@@ -20,27 +21,31 @@ const Home = () => {
         allGames();
     }, [])
     
-    console.log(singleGame)
+
 
   return (
     <>
         <Search 
             setSingleGame={setSingleGame}
-
+            setIsLoading={setIsLoading}
+            setIsMultipleGames={setIsMultipleGames}
+        />
+        <FilterGame 
+          setSingleGame={setSingleGame}
+          setGames={setGames}
+          setIsLoading={setIsLoading}
+          setIsMultipleGames={setIsMultipleGames}
+        />
+        <Games
+          singleGame = {singleGame}
+          games = {games}
+          isLoading = {isLoading}
+          isMultipleGames={isMultipleGames}
+    
+         
         />
      
-        {(Object.keys(singleGame).length === 0) ?  
-            (<div>
-                {games.map((game, index) => (
-                    <Card key={index} game={game} />
-        ))}
-            </div>)
-         : 
-         <div>    
-            <h3>{singleGame.title}</h3>
-            <p>{singleGame.short_description}</p>
-            <img src={singleGame.thumbnail}/>
-        </div>}
+      
 
     </>
   )

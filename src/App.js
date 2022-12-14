@@ -1,17 +1,18 @@
 
 import './App.css';
-import {searchData, options} from './utils/getData'
-import { useEffect, useState } from 'react';
-import Search from './components/Search';
 import Home from './pages/Home';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
-  const [gameID, setGameID] = useState('')
+
 
   return (
     <>
+    <ToastContainer/>
     <Home/>
+   
     </>
   );
 }
