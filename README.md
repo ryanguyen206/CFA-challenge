@@ -1,5 +1,5 @@
 
-1.
+1. https://ryanguyen206.github.io/CFA-challenge/
 2. I decided to use the Free-to-Play Games API (https://rapidapi.com/digiwalls/api/free-to-play-games-database) because I enjoy playing games and I have not done a project related to games so I thought it would be fun to do. 
 3. This API would also help users familarize themselves with the game world. 
 4. Some considerations to make the app mobile friendly and responsive is making sure the app resizes well on any device whether it be a monitor, tablet or mobile device. Thankfully, grid-template-columns: repeat(auto-fill , minmax(300px,1fr)); automatically does that for you so it'll resize the cards to fit the browser well.
